@@ -83,7 +83,7 @@ class AlgorithmRunner:
         else:
             return image
 
-class AlgorithmRunnerX(AlgorithmRunner):
+class AlgorithmRunnerX():
     def __init__(self,alg,image,path,output_path):
         
         self.algorithm        = alg
@@ -113,6 +113,7 @@ class AlgorithmRunnerX(AlgorithmRunner):
         '''
 
         img = os.path.join(path, image)
+		print(img)
         alg = None
 
         # UM (Unsharping Mask)
