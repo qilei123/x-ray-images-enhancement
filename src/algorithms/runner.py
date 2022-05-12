@@ -99,6 +99,35 @@ class AlgorithmRunnerX(AlgorithmRunner):
         os.makedirs(self.results_path.replace(os.path.basename(self.results_path),""), exist_ok=True)
 
     def run(self):
-        processed_image = super.__run_algorithm(self.image, self.images_path)
-
+        processed_image = self.__run_algorithm(self.image, self.images_path)
         imageio.imwrite(self.results_path, processed_image)
+
+    def __run_algorithm(self, image, path):
+        '''Runs the algorithm in the image.
+
+        Parameters:
+            image: image filename.
+            path: image directory.
+
+        Returns the processed image.
+        '''
+
+        img = os.path.join(path, image)
+        alg = None
+
+        # UM (Unsharping Mask)
+        if self.algorithm == 'um':
+            alg = UM(img)
+        # CLAHE
+        if self.algorithm == 'clahe':
+            alg = CLAHE(img, self.results_path)
+        # HEF
+        if self.algorithm == 'hef':
+            alg = HEF(img, self.results_path)
+
+        try:
+            image = alg.run()
+        except Exception as e:
+            print(e)
+        else:
+            return image
