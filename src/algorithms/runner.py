@@ -82,3 +82,18 @@ class AlgorithmRunner:
 			print(e)
 		else:
 			return image
+
+class AlgorithmRunnerX(AlgorithmRunner):
+	def __init__(self,alg,image,path,output_path):
+		
+		self.algorithm		= alg
+		self.image				= image
+		self.images_path	= path
+		output_path = output_path
+
+		if output_path:
+			self.results_path = output_path
+		else:
+			self.results_path	= os.path.join("results", str(datetime.now()))
+
+		os.makedirs(self.results_path, exist_ok=True)
