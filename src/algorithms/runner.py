@@ -113,7 +113,7 @@ class AlgorithmRunnerX():
         '''
 
         img = os.path.join(path, image)
-		print(img)
+        print(img)
         alg = None
 
         # UM (Unsharping Mask)
