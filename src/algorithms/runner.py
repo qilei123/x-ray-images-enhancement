@@ -99,6 +99,6 @@ class AlgorithmRunnerX(AlgorithmRunner):
         os.makedirs(self.results_path.replace(os.path.basename(self.results_path),""), exist_ok=True)
 
     def run(self):
-        processed_image = self.__run_algorithm(self.image, self.images_path)
+        processed_image = super.__run_algorithm(self.image, self.images_path)
 
         imageio.imwrite(self.results_path, processed_image)
