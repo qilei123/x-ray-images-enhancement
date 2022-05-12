@@ -27,7 +27,7 @@ class CLAHE(BaseAlgorithm):
 			image = pu.to_grayscale(image)
 
 		normalized_image = pu.normalize(np.min(image), np.max(image), 0, 255, image)
-		imageio.imwrite(os.path.join(self.results_path, "normalized_image.jpg"), normalized_image)
+		imageio.imwrite(self.results_path, normalized_image)
 
 		start = timeit.default_timer()
 		equalized_image = self.clahe(normalized_image)
