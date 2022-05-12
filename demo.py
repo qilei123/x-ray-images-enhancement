@@ -10,6 +10,5 @@ def main():
         output_dir = os.path.join(data_root,"images_crop_enhance",img["file_name"])
         ar = AlgorithmRunnerX("clahe",img_dir,"",output_dir)
 	    ar.run()
-
 if __name__ == "__main__":
     main()
