@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="902bf30d-f651-4aa8-9466-18efeb328c3e" name="xrayimageenhance">
+        <fileTransfer rootFolder="/home/qilei" accessType="SFTP" host="10.118.2.221" port="22" sshConfigId="71c6dac9-d2a6-4395-b43a-2408ab44cf28" sshConfig="qilei@10.118.2.221:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
