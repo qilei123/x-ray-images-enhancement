@@ -18,7 +18,8 @@ class CLAHE(BaseAlgorithm):
 	def __init__(self, filename, results_path):
 		self.filename = filename
 		self.results_path = results_path
-		self.get_input()
+		#self.get_input()
+		self.set_hyperparamater()
 
 	def run(self):
 		image = imageio.imread(self.filename)
@@ -27,7 +28,7 @@ class CLAHE(BaseAlgorithm):
 			image = pu.to_grayscale(image)
 
 		normalized_image = pu.normalize(np.min(image), np.max(image), 0, 255, image)
-		imageio.imwrite(self.results_path, normalized_image)
+		#imageio.imwrite(self.results_path, normalized_image)
 
 		start = timeit.default_timer()
 		equalized_image = self.clahe(normalized_image)
@@ -45,6 +46,11 @@ class CLAHE(BaseAlgorithm):
 		self.clip_limit = int(input())
 		print("Number of iterations: ")
 		self.n_iter = int(input())
+
+	def set_hyperparamater(self):
+		self.window_size = 40
+		self.clip_limit = 4
+		self.n_iter = 1
 
 	def clahe(self, image):
 		'''Applies the CLAHE algorithm in an image.

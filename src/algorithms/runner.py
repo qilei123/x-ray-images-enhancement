@@ -87,7 +87,7 @@ class AlgorithmRunnerX():
     def __init__(self,alg,image,path,output_path):
         
         self.algorithm        = alg
-        self.image                = image
+        self.image          = image
         self.images_path    = path
         output_path = output_path
 
@@ -130,5 +130,5 @@ class AlgorithmRunnerX():
             image = alg.run()
         except Exception as e:
             print(e)
-        else:
-            return image
+        
+        return image
